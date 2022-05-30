@@ -72,7 +72,7 @@ var /**
                 var _this = this;
                 // Fire common init JS
                 this.fire("common"); // Fire page-specific init JS, and then finalize JS
-                document.location.pathname.replace("/webflow/", "") // remove for proxy server
+                document.location.pathname.replace("/webflow/", "").replace("/", "") // remove for proxy server
                 // document.body.className
                 .toLowerCase().replace(/-/g, "_").split(/\s+/) // .map(camelCase)
                 .forEach(function(className) {

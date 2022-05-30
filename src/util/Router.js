@@ -59,7 +59,8 @@ class Router {
     // Fire page-specific init JS, and then finalize JS
 
     document.location.pathname
-      .replace("/webflow/", "") // remove for proxy server
+      .replace("/webflow/", "")
+      .replace("/", "") // remove for proxy server
       // document.body.className
       .toLowerCase()
       .replace(/-/g, "_")
