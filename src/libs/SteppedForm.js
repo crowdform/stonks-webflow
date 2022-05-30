@@ -6,6 +6,8 @@ class SteppedForm {
   init() {
     $(`${this.screens.join(",")}`).hide();
 
+    $(".step-title").hide();
+
     // attached listens
     this.setStep(0);
   }

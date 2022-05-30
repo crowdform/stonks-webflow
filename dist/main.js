@@ -248,27 +248,43 @@ var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
                 return false;
             }); // on topup game wallet
             $(".exchange---form input[value='Top Up']").on("click", (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
-                var send_token_amount, to_address, contract_address, contract, numberOfTokens;
+                var send_token_amount, to_address, contract_address, contract, numberOfTokens, transferResult;
                 return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
                     while(1)switch(_ctx.prev = _ctx.next){
                         case 0:
-                            console.log("ddemodmo");
                             send_token_amount = $("#email-form input[type='number']").val();
                             console.log("send_token_amount", send_token_amount); // const send_token_amount = "0.05";
                             to_address = "0x1f2Ad5182b2F2398643b1Aa9187185d223905A0d";
                             contract_address = "0xb625bD4B866DA272f8D3d0827E101dFcDd198667"; // const currentGasPrice = ex.ethers.getGasPrice();
                             contract = new (0, $jczNP$ethers.ethers).Contract(contract_address, (0, (/*@__PURE__*/$parcel$interopDefault($2a47c65b10640bef$exports))), ex.ethers.getSigner()); // How many tokens?
                             numberOfTokens = (0, $jczNP$ethers.ethers).utils.parseUnits(send_token_amount, 18);
-                            console.log("numberOfTokens: ".concat(numberOfTokens)); // Send tokens
-                            contract.transfer(to_address, numberOfTokens).then(function(transferResult) {
-                                console.dir(transferResult);
-                                alert("sent token");
-                            });
-                        case 9:
+                            console.log("numberOfTokens: ".concat(numberOfTokens));
+                            _ctx.prev = 7;
+                            // open waiting for wallet
+                            ex.goToNextStep(); // Send tokens
+                            _ctx.next = 11;
+                            return contract.transfer(to_address, numberOfTokens);
+                        case 11:
+                            transferResult = _ctx.sent;
+                            ex.state.transaction = transferResult; // mining transaction waiting for wallet
+                            ex.goToNextStep();
+                            _ctx.next = 20;
+                            break;
+                        case 16:
+                            _ctx.prev = 16;
+                            _ctx.t0 = _ctx["catch"](7);
+                            console.error(_ctx.t0);
+                            ex.goToPreviousStep();
+                        case 20:
                         case "end":
                             return _ctx.stop();
                     }
-                }, _callee);
+                }, _callee, null, [
+                    [
+                        7,
+                        16
+                    ]
+                ]);
             }))); // on disconnect
             $(".wallet-connect .text---small").on("click", (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
                 return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
@@ -284,6 +300,11 @@ var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
                     }
                 }, _callee);
             }))); // discount button
+        });
+        ex.addHandlers(3, function() {
+            var ref, ref1, ref2, ref3;
+            //  data hash
+            $(".exchange-mining-transaction .link---small").html((ref = ex.state) === null || ref === void 0 ? void 0 : (ref1 = ref.transaction) === null || ref1 === void 0 ? void 0 : ref1.hash).attr("href", "https://rinkeby.etherscan.io/tx/".concat((ref2 = ex.state) === null || ref2 === void 0 ? void 0 : (ref3 = ref2.transaction) === null || ref3 === void 0 ? void 0 : ref3.hash)); // address button
         });
         ex.init();
         console.log(ex); // // must init the package
