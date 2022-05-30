@@ -2,12 +2,13 @@
   "name": "stonks-webflow",
   "version": "1.0.0",
   "main": "dist/main.js",
-
   "context": "browser",
   "license": "MIT",
   "scripts": {
     "start": "parcel src/app.js",
-    "build": "parcel build src/app.js"
+    "build": "parcel build src/app.js",
+    "predeploy": "yarn build",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@swc/helpers": "^0.3.16",
