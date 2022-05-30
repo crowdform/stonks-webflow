@@ -1,5 +1,5 @@
-var $kmlXY$jquery = require("jquery");
-var $kmlXY$ethers = require("ethers");
+import $gvVY1$jquery from "jquery";
+import {ethers as $gvVY1$ethers} from "ethers";
 
 function $parcel$interopDefault(a) {
   return a && a.__esModule ? a.default : a;
@@ -9,7 +9,7 @@ var /**
  * the most terrible camelizer on the internet, guaranteed!
  * @param {string} str String that isn't camel-case, e.g., CAMeL_CaSEiS-harD
  * @return {string} String converted to camel-case, e.g., camelCaseIsHard
- */ $25ca25a01869a4ab$export$2e2bcd8739ae039 = (str)=>`${str.charAt(0).toLowerCase()}${str.replace(/[\W_]/g, "|").split("|").map((part)=>`${part.charAt(0).toUpperCase()}${part.slice(1)}`).join("").slice(1)}`;
+ */ $a49114d3c59c4053$export$2e2bcd8739ae039 = (str)=>`${str.charAt(0).toLowerCase()}${str.replace(/[\W_]/g, "|").split("|").map((part)=>`${part.charAt(0).toUpperCase()}${part.slice(1)}`).join("").slice(1)}`;
 
 
 /**
@@ -19,13 +19,7 @@ var /**
  *
  * The routing fires all common scripts, followed by the page specific scripts.
  * Add additional events for more control over timing e.g. a finalize event
- */ class $e0feaa0b459d85a8$var$Router {
-    /**
-   * Create a new Router
-   * @param {Object} routes
-   */ constructor(routes){
-        this.routes = routes;
-    }
+ */ class $e6f2ef58f16c7d90$var$Router {
     /**
    * Fire Router events
    * @param {string} route DOM-based route derived from body classes (`<body class="...">`)
@@ -63,22 +57,24 @@ var /**
         }); // Fire common finalize JS
         this.fire("common", "finalize");
     }
+    /**
+   * Create a new Router
+   * @param {Object} routes
+   */ constructor(routes){
+        this.routes = routes;
+    }
 }
-var $e0feaa0b459d85a8$export$2e2bcd8739ae039 = $e0feaa0b459d85a8$var$Router;
+var $e6f2ef58f16c7d90$export$2e2bcd8739ae039 = $e6f2ef58f16c7d90$var$Router;
 
 
-var $27b22993631c5303$export$2e2bcd8739ae039 = {
+var $0fe9acc165655fa0$export$2e2bcd8739ae039 = {
     init () {},
     finalize () {}
 };
 
 
 
-class $34f5a28c4d82e13b$var$SteppedForm {
-    constructor(screens){
-        this.screens = screens;
-        this.handlers = [];
-    }
+class $0e7fea930c5ffc0a$var$SteppedForm {
     init() {
         $(`${this.screens.join(",")}`).hide(); // attached listens
         this.setStep(0);
@@ -105,15 +101,19 @@ class $34f5a28c4d82e13b$var$SteppedForm {
     addHandlers(step, func) {
         this.handlers[step] = func;
     }
+    constructor(screens){
+        this.screens = screens;
+        this.handlers = [];
+    }
 }
-var $34f5a28c4d82e13b$export$2e2bcd8739ae039 = $34f5a28c4d82e13b$var$SteppedForm;
+var $0e7fea930c5ffc0a$export$2e2bcd8739ae039 = $0e7fea930c5ffc0a$var$SteppedForm;
 
 
-var $6a1ea1583bdff0e4$exports = {};
-$6a1ea1583bdff0e4$exports = JSON.parse('[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]');
+var $da3fa6d5a2fe70a7$exports = {};
+$da3fa6d5a2fe70a7$exports = JSON.parse('[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]');
 
 
-var $f6d935393cca4637$export$2e2bcd8739ae039 = {
+var $6f21399e79cd7f21$export$2e2bcd8739ae039 = {
     init () {
         console.log("Exchange page");
         const sdk = new window.FlexConnect("flex-xyz", {
@@ -127,7 +127,7 @@ var $f6d935393cca4637$export$2e2bcd8739ae039 = {
             ".exchange-mining-transaction",
             ".exchange-transaction-successfull"
         ];
-        class Exchange extends (0, $34f5a28c4d82e13b$export$2e2bcd8739ae039) {
+        class Exchange extends (0, $0e7fea930c5ffc0a$export$2e2bcd8739ae039) {
             constructor(screens){
                 super(screens);
                 this.handlers = [];
@@ -142,7 +142,7 @@ var $f6d935393cca4637$export$2e2bcd8739ae039 = {
                     // const url = await sdk.auth.login();
                     const provider = await sdk.web3Modal().connect();
                     ex.provider = provider;
-                    ex.ethers = new (0, $kmlXY$ethers.ethers).providers.Web3Provider(ex.provider);
+                    ex.ethers = new (0, $gvVY1$ethers).providers.Web3Provider(ex.provider);
                     ex.state = {
                         account: await ex.ethers.getSigner().getAddress()
                     };
@@ -170,8 +170,8 @@ var $f6d935393cca4637$export$2e2bcd8739ae039 = {
                 // const gas_price = ethers.utils.hexlify(parseInt(currentGasPrice));
                 // console.log(`gas_price: ${gas_price}`);
                 // general token send
-                let contract = new (0, $kmlXY$ethers.ethers).Contract(contract_address, (0, (/*@__PURE__*/$parcel$interopDefault($6a1ea1583bdff0e4$exports))), ex.ethers.getSigner()); // How many tokens?
-                let numberOfTokens = (0, $kmlXY$ethers.ethers).utils.parseUnits(send_token_amount, 18);
+                let contract = new (0, $gvVY1$ethers).Contract(contract_address, (0, (/*@__PURE__*/$parcel$interopDefault($da3fa6d5a2fe70a7$exports))), ex.ethers.getSigner()); // How many tokens?
+                let numberOfTokens = (0, $gvVY1$ethers).utils.parseUnits(send_token_amount, 18);
                 console.log(`numberOfTokens: ${numberOfTokens}`); // Send tokens
                 contract.transfer(to_address, numberOfTokens).then((transferResult)=>{
                     console.dir(transferResult);
@@ -215,13 +215,13 @@ var $f6d935393cca4637$export$2e2bcd8739ae039 = {
 };
 
 
-/** Populate Router instance with DOM routes */ const $89e00d958f6c7b59$var$routes = new (0, $e0feaa0b459d85a8$export$2e2bcd8739ae039)({
+/** Populate Router instance with DOM routes */ const $6309bd15878bcd6e$var$routes = new (0, $e6f2ef58f16c7d90$export$2e2bcd8739ae039)({
     common: // All pages
-    $27b22993631c5303$export$2e2bcd8739ae039,
+    $0fe9acc165655fa0$export$2e2bcd8739ae039,
     exchange: // Home page
-    $f6d935393cca4637$export$2e2bcd8739ae039
+    $6f21399e79cd7f21$export$2e2bcd8739ae039
 }); // Load Events
-(0, ($parcel$interopDefault($kmlXY$jquery)))(document).ready(()=>$89e00d958f6c7b59$var$routes.loadEvents());
+(0, $gvVY1$jquery)(document).ready(()=>$6309bd15878bcd6e$var$routes.loadEvents());
 
 
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=module.js.map
