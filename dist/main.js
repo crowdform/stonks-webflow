@@ -1,11 +1,11 @@
-require("jquery");
-var $ibzUb$swchelperslib_class_call_checkjs = require("@swc/helpers/lib/_class_call_check.js");
-var $ibzUb$swchelperslib_create_classjs = require("@swc/helpers/lib/_create_class.js");
-var $ibzUb$swchelperslib_async_to_generatorjs = require("@swc/helpers/lib/_async_to_generator.js");
-var $ibzUb$swchelperslib_inheritsjs = require("@swc/helpers/lib/_inherits.js");
-var $ibzUb$swchelperslib_create_superjs = require("@swc/helpers/lib/_create_super.js");
-var $ibzUb$regeneratorruntime = require("regenerator-runtime");
-var $ibzUb$ethers = require("ethers");
+var $jczNP$jquery = require("jquery");
+var $jczNP$swchelperslib_class_call_checkjs = require("@swc/helpers/lib/_class_call_check.js");
+var $jczNP$swchelperslib_create_classjs = require("@swc/helpers/lib/_create_class.js");
+var $jczNP$swchelperslib_async_to_generatorjs = require("@swc/helpers/lib/_async_to_generator.js");
+var $jczNP$swchelperslib_inheritsjs = require("@swc/helpers/lib/_inherits.js");
+var $jczNP$swchelperslib_create_superjs = require("@swc/helpers/lib/_create_super.js");
+var $jczNP$regeneratorruntime = require("regenerator-runtime");
+var $jczNP$ethers = require("ethers");
 
 function $parcel$interopDefault(a) {
   return a && a.__esModule ? a.default : a;
@@ -17,7 +17,7 @@ var /**
  * the most terrible camelizer on the internet, guaranteed!
  * @param {string} str String that isn't camel-case, e.g., CAMeL_CaSEiS-harD
  * @return {string} String converted to camel-case, e.g., camelCaseIsHard
- */ $8459d0188da8f78b$export$2e2bcd8739ae039 = function(str) {
+ */ $566749d5dbad7bba$export$2e2bcd8739ae039 = function(str) {
     return "".concat(str.charAt(0).toLowerCase()).concat(str.replace(/[\W_]/g, "|").split("|").map(function(part) {
         return "".concat(part.charAt(0).toUpperCase()).concat(part.slice(1));
     }).join("").slice(1));
@@ -31,13 +31,13 @@ var /**
  *
  * The routing fires all common scripts, followed by the page specific scripts.
  * Add additional events for more control over timing e.g. a finalize event
- */ var $a51683145d388625$var$Router = /*#__PURE__*/ function() {
+ */ var $08c2c54937623424$var$Router = /*#__PURE__*/ function() {
     "use strict";
     function Router(routes) {
-        (0, ($parcel$interopDefault($ibzUb$swchelperslib_class_call_checkjs)))(this, Router);
+        (0, ($parcel$interopDefault($jczNP$swchelperslib_class_call_checkjs)))(this, Router);
         this.routes = routes;
     }
-    (0, ($parcel$interopDefault($ibzUb$swchelperslib_create_classjs)))(Router, [
+    (0, ($parcel$interopDefault($jczNP$swchelperslib_create_classjs)))(Router, [
         {
             /**
    * Fire Router events
@@ -71,33 +71,27 @@ var /**
             value: function loadEvents() {
                 var _this = this;
                 // Fire common init JS
-                this.fire("common");
-                // Fire page-specific init JS, and then finalize JS
+                this.fire("common"); // Fire page-specific init JS, and then finalize JS
                 document.location.pathname.replace("/webflow/", "") // remove for proxy server
                 // document.body.className
-                .toLowerCase().replace(/-/g, "_").split(/\s+/)// .map(camelCase)
+                .toLowerCase().replace(/-/g, "_").split(/\s+/) // .map(camelCase)
                 .forEach(function(className) {
                     console.log(className);
                     _this.fire(className);
                     _this.fire(className, "finalize");
-                });
-                // Fire common finalize JS
+                }); // Fire common finalize JS
                 this.fire("common", "finalize");
             }
         }
     ]);
     return Router;
 }();
-var $a51683145d388625$export$2e2bcd8739ae039 = $a51683145d388625$var$Router;
+var $08c2c54937623424$export$2e2bcd8739ae039 = $08c2c54937623424$var$Router;
 
 
-var $137d24ed57e88209$export$2e2bcd8739ae039 = {
-    init: function() {
-    // JavaScript to be fired on all pages
-    },
-    finalize: function() {
-    // JavaScript to be fired on all pages, after page specific JS is fired
-    }
+var $19b8f7b3a8443d39$export$2e2bcd8739ae039 = {
+    init: function() {},
+    finalize: function() {}
 };
 
 
@@ -109,19 +103,18 @@ var $137d24ed57e88209$export$2e2bcd8739ae039 = {
 
 
 
-var $3d8782475f5a8c5d$var$SteppedForm = /*#__PURE__*/ function() {
+var $eaf7e6bc0a214987$var$SteppedForm = /*#__PURE__*/ function() {
     "use strict";
     function SteppedForm(screens) {
-        (0, ($parcel$interopDefault($ibzUb$swchelperslib_class_call_checkjs)))(this, SteppedForm);
+        (0, ($parcel$interopDefault($jczNP$swchelperslib_class_call_checkjs)))(this, SteppedForm);
         this.screens = screens;
         this.handlers = [];
     }
-    (0, ($parcel$interopDefault($ibzUb$swchelperslib_create_classjs)))(SteppedForm, [
+    (0, ($parcel$interopDefault($jczNP$swchelperslib_create_classjs)))(SteppedForm, [
         {
             key: "init",
             value: function init() {
-                $("".concat(this.screens.join(","))).hide();
-                // attached listens
+                $("".concat(this.screens.join(","))).hide(); // attached listens
                 this.setStep(0);
             }
         },
@@ -168,48 +161,47 @@ var $3d8782475f5a8c5d$var$SteppedForm = /*#__PURE__*/ function() {
     ]);
     return SteppedForm;
 }();
-var $3d8782475f5a8c5d$export$2e2bcd8739ae039 = $3d8782475f5a8c5d$var$SteppedForm;
+var $eaf7e6bc0a214987$export$2e2bcd8739ae039 = $eaf7e6bc0a214987$var$SteppedForm;
 
 
-var $44dbe34ca1125d49$exports = {};
-$44dbe34ca1125d49$exports = JSON.parse('[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]');
+var $2a47c65b10640bef$exports = {};
+$2a47c65b10640bef$exports = JSON.parse('[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]');
 
 
-var $211070c77c6a9cde$export$2e2bcd8739ae039 = {
+var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
     init: function() {
         console.log("Exchange page");
         var sdk = new window.FlexConnect("flex-xyz", {
             env: "development"
         });
-        window.sdk = sdk;
-        // Exchange
+        window.sdk = sdk; // Exchange
         var screens1 = [
             ".exchange-connect-wallet",
             ".exchange-wallet-connected",
             ".exchange-waiting-for-wallet",
             ".exchange-mining-transaction",
-            ".exchange-transaction-successfull", 
+            ".exchange-transaction-successfull"
         ];
         var Exchange1 = /*#__PURE__*/ function(SteppedForm1) {
             "use strict";
-            (0, ($parcel$interopDefault($ibzUb$swchelperslib_inheritsjs)))(Exchange, SteppedForm1);
-            var _super = (0, ($parcel$interopDefault($ibzUb$swchelperslib_create_superjs)))(Exchange);
+            (0, ($parcel$interopDefault($jczNP$swchelperslib_inheritsjs)))(Exchange, SteppedForm1);
+            var _super = (0, ($parcel$interopDefault($jczNP$swchelperslib_create_superjs)))(Exchange);
             function Exchange(screens) {
-                (0, ($parcel$interopDefault($ibzUb$swchelperslib_class_call_checkjs)))(this, Exchange);
+                (0, ($parcel$interopDefault($jczNP$swchelperslib_class_call_checkjs)))(this, Exchange);
                 var _this;
                 _this = _super.call(this, screens);
                 _this.handlers = [];
                 return _this;
             }
             return Exchange;
-        }((0, $3d8782475f5a8c5d$export$2e2bcd8739ae039));
+        }((0, $eaf7e6bc0a214987$export$2e2bcd8739ae039));
         var ex = new Exchange1(screens1);
         ex.addHandlers(0, function() {
             // handler for connect wallet
             console.log("handler for connect wallet");
-            $(".login").on("click", (0, ($parcel$interopDefault($ibzUb$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($ibzUb$regeneratorruntime))).mark(function _callee() {
+            $(".login").on("click", (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
                 var provider;
-                return (0, ($parcel$interopDefault($ibzUb$regeneratorruntime))).wrap(function _callee$(_ctx) {
+                return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
                     while(1)switch(_ctx.prev = _ctx.next){
                         case 0:
                             _ctx.prev = 0;
@@ -218,7 +210,7 @@ var $211070c77c6a9cde$export$2e2bcd8739ae039 = {
                         case 3:
                             provider = _ctx.sent;
                             ex.provider = provider;
-                            ex.ethers = new (0, $ibzUb$ethers.ethers).providers.Web3Provider(ex.provider);
+                            ex.ethers = new (0, $jczNP$ethers.ethers).providers.Web3Provider(ex.provider);
                             _ctx.next = 8;
                             return ex.ethers.getSigner().getAddress();
                         case 8:
@@ -248,29 +240,26 @@ var $211070c77c6a9cde$export$2e2bcd8739ae039 = {
         ex.addHandlers(1, function() {
             var ref;
             // handler for connect wallet
-            console.log(".exchange-wallet-connected", ex);
-            // data
+            console.log(".exchange-wallet-connected", ex); // data
             $(".wallet-connect---button .text-block-2").html((ref = ex.state) === null || ref === void 0 ? void 0 : ref.account); // address button
             // bind
             $("#email-form").submit(function(event) {
                 event.preventDefault();
                 return false;
-            });
-            // on topup game wallet
-            $(".exchange---form input[value='Top Up']").on("click", (0, ($parcel$interopDefault($ibzUb$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($ibzUb$regeneratorruntime))).mark(function _callee() {
+            }); // on topup game wallet
+            $(".exchange---form input[value='Top Up']").on("click", (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
                 var send_token_amount, to_address, contract_address, contract, numberOfTokens;
-                return (0, ($parcel$interopDefault($ibzUb$regeneratorruntime))).wrap(function _callee$(_ctx) {
+                return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
                     while(1)switch(_ctx.prev = _ctx.next){
                         case 0:
                             console.log("ddemodmo");
                             send_token_amount = $("#email-form input[type='number']").val();
-                            console.log("send_token_amount", send_token_amount);
+                            console.log("send_token_amount", send_token_amount); // const send_token_amount = "0.05";
                             to_address = "0x1f2Ad5182b2F2398643b1Aa9187185d223905A0d";
-                            contract_address = "0xb625bD4B866DA272f8D3d0827E101dFcDd198667";
-                            contract = new (0, $ibzUb$ethers.ethers).Contract(contract_address, (0, (/*@__PURE__*/$parcel$interopDefault($44dbe34ca1125d49$exports))), ex.ethers.getSigner());
-                            numberOfTokens = (0, $ibzUb$ethers.ethers).utils.parseUnits(send_token_amount, 18);
-                            console.log("numberOfTokens: ".concat(numberOfTokens));
-                            // Send tokens
+                            contract_address = "0xb625bD4B866DA272f8D3d0827E101dFcDd198667"; // const currentGasPrice = ex.ethers.getGasPrice();
+                            contract = new (0, $jczNP$ethers.ethers).Contract(contract_address, (0, (/*@__PURE__*/$parcel$interopDefault($2a47c65b10640bef$exports))), ex.ethers.getSigner()); // How many tokens?
+                            numberOfTokens = (0, $jczNP$ethers.ethers).utils.parseUnits(send_token_amount, 18);
+                            console.log("numberOfTokens: ".concat(numberOfTokens)); // Send tokens
                             contract.transfer(to_address, numberOfTokens).then(function(transferResult) {
                                 console.dir(transferResult);
                                 alert("sent token");
@@ -280,10 +269,9 @@ var $211070c77c6a9cde$export$2e2bcd8739ae039 = {
                             return _ctx.stop();
                     }
                 }, _callee);
-            })));
-            // on disconnect
-            $(".wallet-connect .text---small").on("click", (0, ($parcel$interopDefault($ibzUb$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($ibzUb$regeneratorruntime))).mark(function _callee() {
-                return (0, ($parcel$interopDefault($ibzUb$regeneratorruntime))).wrap(function _callee$(_ctx) {
+            }))); // on disconnect
+            $(".wallet-connect .text---small").on("click", (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
+                return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
                     while(1)switch(_ctx.prev = _ctx.next){
                         case 0:
                             _ctx.next = 2;
@@ -298,8 +286,7 @@ var $211070c77c6a9cde$export$2e2bcd8739ae039 = {
             }))); // discount button
         });
         ex.init();
-        console.log(ex);
-    // // must init the package
+        console.log(ex); // // must init the package
     // sdk.init();
     // // create button with class .login
     // $(".login").on("click", async () => {
@@ -329,15 +316,14 @@ var $211070c77c6a9cde$export$2e2bcd8739ae039 = {
 };
 
 
-/** Populate Router instance with DOM routes */ var $f92bb0ee751616dc$var$routes = new (0, $a51683145d388625$export$2e2bcd8739ae039)({
+/** Populate Router instance with DOM routes */ var $b805db72ceeb7d45$var$routes = new (0, $08c2c54937623424$export$2e2bcd8739ae039)({
     // All pages
-    common: (0, $137d24ed57e88209$export$2e2bcd8739ae039),
+    common: (0, $19b8f7b3a8443d39$export$2e2bcd8739ae039),
     // Home page
-    exchange: (0, $211070c77c6a9cde$export$2e2bcd8739ae039)
-});
-// Load Events
-jQuery(document).ready(function() {
-    return $f92bb0ee751616dc$var$routes.loadEvents();
+    exchange: (0, $89748dfdce2d7bc9$export$2e2bcd8739ae039)
+}); // Load Events
+(0, ($parcel$interopDefault($jczNP$jquery)))(document).ready(function() {
+    return $b805db72ceeb7d45$var$routes.loadEvents();
 });
 
 
