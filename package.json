@@ -1,0 +1,20 @@
+{
+  "name": "stonks-webflow",
+  "version": "1.0.0",
+  "main": "dist/app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/app.js",
+    "build": "parcel build src/app.js"
+  },
+  "dependencies": {
+    "ethers": "^5.6.8",
+    "http-proxy-middleware": "^2.0.6",
+    "jquery": "^3.6.0",
+    "parcel": "^2.6.0",
+    "parcel-proxy-server": "^1.1.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
