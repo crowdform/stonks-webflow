@@ -1,15 +1,27 @@
-var $kmlXY$jquery = require("jquery");
-var $kmlXY$ethers = require("ethers");
+var $jczNP$jquery = require("jquery");
+var $jczNP$swchelperslib_class_call_checkjs = require("@swc/helpers/lib/_class_call_check.js");
+var $jczNP$swchelperslib_create_classjs = require("@swc/helpers/lib/_create_class.js");
+var $jczNP$swchelperslib_async_to_generatorjs = require("@swc/helpers/lib/_async_to_generator.js");
+var $jczNP$swchelperslib_inheritsjs = require("@swc/helpers/lib/_inherits.js");
+var $jczNP$swchelperslib_create_superjs = require("@swc/helpers/lib/_create_super.js");
+var $jczNP$regeneratorruntime = require("regenerator-runtime");
+var $jczNP$ethers = require("ethers");
 
 function $parcel$interopDefault(a) {
   return a && a.__esModule ? a.default : a;
 }
 
+
+
 var /**
  * the most terrible camelizer on the internet, guaranteed!
  * @param {string} str String that isn't camel-case, e.g., CAMeL_CaSEiS-harD
  * @return {string} String converted to camel-case, e.g., camelCaseIsHard
- */ $25ca25a01869a4ab$export$2e2bcd8739ae039 = (str)=>`${str.charAt(0).toLowerCase()}${str.replace(/[\W_]/g, "|").split("|").map((part)=>`${part.charAt(0).toUpperCase()}${part.slice(1)}`).join("").slice(1)}`;
+ */ $566749d5dbad7bba$export$2e2bcd8739ae039 = function(str) {
+    return "".concat(str.charAt(0).toLowerCase()).concat(str.replace(/[\W_]/g, "|").split("|").map(function(part) {
+        return "".concat(part.charAt(0).toUpperCase()).concat(part.slice(1));
+    }).join("").slice(1));
+};
 
 
 /**
@@ -19,30 +31,35 @@ var /**
  *
  * The routing fires all common scripts, followed by the page specific scripts.
  * Add additional events for more control over timing e.g. a finalize event
- */ class $e0feaa0b459d85a8$var$Router {
-    /**
-   * Create a new Router
-   * @param {Object} routes
-   */ constructor(routes){
+ */ var $08c2c54937623424$var$Router = /*#__PURE__*/ function() {
+    "use strict";
+    function Router(routes) {
+        (0, ($parcel$interopDefault($jczNP$swchelperslib_class_call_checkjs)))(this, Router);
         this.routes = routes;
     }
-    /**
+    (0, ($parcel$interopDefault($jczNP$swchelperslib_create_classjs)))(Router, [
+        {
+            /**
    * Fire Router events
    * @param {string} route DOM-based route derived from body classes (`<body class="...">`)
    * @param {string} [event] Events on the route. By default, `init` and `finalize` events are called.
    * @param {string} [arg] Any custom argument to be passed to the event.
-   */ fire(route, event = "init", arg) {
-        document.dispatchEvent(new CustomEvent("routed", {
-            bubbles: true,
-            detail: {
-                route: route,
-                fn: event
+   */ key: "fire",
+            value: function fire(route) {
+                var event = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "init", arg = arguments.length > 2 ? arguments[2] : void 0;
+                document.dispatchEvent(new CustomEvent("routed", {
+                    bubbles: true,
+                    detail: {
+                        route: route,
+                        fn: event
+                    }
+                }));
+                var fire1 = route !== "" && this.routes[route] && typeof this.routes[route][event] === "function";
+                if (fire1) this.routes[route][event](arg);
             }
-        }));
-        const fire = route !== "" && this.routes[route] && typeof this.routes[route][event] === "function";
-        if (fire) this.routes[route][event](arg);
-    }
-    /**
+        },
+        {
+            /**
    * Automatically load and fire Router events
    *
    * Events are fired in the following order:
@@ -50,139 +67,223 @@ var /**
    *  * page-specific init
    *  * page-specific finalize
    *  * common finalize
-   */ loadEvents() {
-        // Fire common init JS
-        this.fire("common"); // Fire page-specific init JS, and then finalize JS
-        document.location.pathname.replace("/webflow/", "") // remove for proxy server
-        // document.body.className
-        .toLowerCase().replace(/-/g, "_").split(/\s+/) // .map(camelCase)
-        .forEach((className)=>{
-            console.log(className);
-            this.fire(className);
-            this.fire(className, "finalize");
-        }); // Fire common finalize JS
-        this.fire("common", "finalize");
-    }
-}
-var $e0feaa0b459d85a8$export$2e2bcd8739ae039 = $e0feaa0b459d85a8$var$Router;
+   */ key: "loadEvents",
+            value: function loadEvents() {
+                var _this = this;
+                // Fire common init JS
+                this.fire("common"); // Fire page-specific init JS, and then finalize JS
+                document.location.pathname.replace("/webflow/", "") // remove for proxy server
+                // document.body.className
+                .toLowerCase().replace(/-/g, "_").split(/\s+/) // .map(camelCase)
+                .forEach(function(className) {
+                    console.log(className);
+                    _this.fire(className);
+                    _this.fire(className, "finalize");
+                }); // Fire common finalize JS
+                this.fire("common", "finalize");
+            }
+        }
+    ]);
+    return Router;
+}();
+var $08c2c54937623424$export$2e2bcd8739ae039 = $08c2c54937623424$var$Router;
 
 
-var $27b22993631c5303$export$2e2bcd8739ae039 = {
-    init () {},
-    finalize () {}
+var $19b8f7b3a8443d39$export$2e2bcd8739ae039 = {
+    init: function() {},
+    finalize: function() {}
 };
 
 
 
-class $34f5a28c4d82e13b$var$SteppedForm {
-    constructor(screens){
+
+
+
+
+
+
+
+var $eaf7e6bc0a214987$var$SteppedForm = /*#__PURE__*/ function() {
+    "use strict";
+    function SteppedForm(screens) {
+        (0, ($parcel$interopDefault($jczNP$swchelperslib_class_call_checkjs)))(this, SteppedForm);
         this.screens = screens;
         this.handlers = [];
     }
-    init() {
-        $(`${this.screens.join(",")}`).hide(); // attached listens
-        this.setStep(0);
-    }
-    hideStep(step) {
-        $(`${this.screens[step]}`).hide();
-    }
-    setStep(screenNumber) {
-        this.step = screenNumber;
-        $(this.screens[screenNumber]).show();
-        this.initHandler(screenNumber);
-    }
-    goToNextStep() {
-        this.hideStep(this.step);
-        this.setStep(this.step + 1);
-    }
-    goToPreviousStep() {
-        this.hideStep(this.step);
-        this.setStep(this.step - 1);
-    }
-    initHandler(step) {
-        if (typeof this.handlers[step] == "function") this.handlers[step]();
-    }
-    addHandlers(step, func) {
-        this.handlers[step] = func;
-    }
-}
-var $34f5a28c4d82e13b$export$2e2bcd8739ae039 = $34f5a28c4d82e13b$var$SteppedForm;
+    (0, ($parcel$interopDefault($jczNP$swchelperslib_create_classjs)))(SteppedForm, [
+        {
+            key: "init",
+            value: function init() {
+                $("".concat(this.screens.join(","))).hide(); // attached listens
+                this.setStep(0);
+            }
+        },
+        {
+            key: "hideStep",
+            value: function hideStep(step) {
+                $("".concat(this.screens[step])).hide();
+            }
+        },
+        {
+            key: "setStep",
+            value: function setStep(screenNumber) {
+                this.step = screenNumber;
+                $(this.screens[screenNumber]).show();
+                this.initHandler(screenNumber);
+            }
+        },
+        {
+            key: "goToNextStep",
+            value: function goToNextStep() {
+                this.hideStep(this.step);
+                this.setStep(this.step + 1);
+            }
+        },
+        {
+            key: "goToPreviousStep",
+            value: function goToPreviousStep() {
+                this.hideStep(this.step);
+                this.setStep(this.step - 1);
+            }
+        },
+        {
+            key: "initHandler",
+            value: function initHandler(step) {
+                if (typeof this.handlers[step] == "function") this.handlers[step]();
+            }
+        },
+        {
+            key: "addHandlers",
+            value: function addHandlers(step, func) {
+                this.handlers[step] = func;
+            }
+        }
+    ]);
+    return SteppedForm;
+}();
+var $eaf7e6bc0a214987$export$2e2bcd8739ae039 = $eaf7e6bc0a214987$var$SteppedForm;
 
 
-var $6a1ea1583bdff0e4$exports = {};
-$6a1ea1583bdff0e4$exports = JSON.parse('[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]');
+var $2a47c65b10640bef$exports = {};
+$2a47c65b10640bef$exports = JSON.parse('[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]');
 
 
-var $f6d935393cca4637$export$2e2bcd8739ae039 = {
-    init () {
+var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
+    init: function() {
         console.log("Exchange page");
-        const sdk = new window.FlexConnect("flex-xyz", {
+        var sdk = new window.FlexConnect("flex-xyz", {
             env: "development"
         });
         window.sdk = sdk; // Exchange
-        const screens1 = [
+        var screens1 = [
             ".exchange-connect-wallet",
             ".exchange-wallet-connected",
             ".exchange-waiting-for-wallet",
             ".exchange-mining-transaction",
             ".exchange-transaction-successfull"
         ];
-        class Exchange extends (0, $34f5a28c4d82e13b$export$2e2bcd8739ae039) {
-            constructor(screens){
-                super(screens);
-                this.handlers = [];
+        var Exchange1 = /*#__PURE__*/ function(SteppedForm1) {
+            "use strict";
+            (0, ($parcel$interopDefault($jczNP$swchelperslib_inheritsjs)))(Exchange, SteppedForm1);
+            var _super = (0, ($parcel$interopDefault($jczNP$swchelperslib_create_superjs)))(Exchange);
+            function Exchange(screens) {
+                (0, ($parcel$interopDefault($jczNP$swchelperslib_class_call_checkjs)))(this, Exchange);
+                var _this;
+                _this = _super.call(this, screens);
+                _this.handlers = [];
+                return _this;
             }
-        }
-        const ex = new Exchange(screens1);
-        ex.addHandlers(0, ()=>{
+            return Exchange;
+        }((0, $eaf7e6bc0a214987$export$2e2bcd8739ae039));
+        var ex = new Exchange1(screens1);
+        ex.addHandlers(0, function() {
             // handler for connect wallet
             console.log("handler for connect wallet");
-            $(".login").on("click", async ()=>{
-                try {
-                    // const url = await sdk.auth.login();
-                    const provider = await sdk.web3Modal().connect();
-                    ex.provider = provider;
-                    ex.ethers = new (0, $kmlXY$ethers.ethers).providers.Web3Provider(ex.provider);
-                    ex.state = {
-                        account: await ex.ethers.getSigner().getAddress()
-                    };
-                    ex.goToNextStep();
-                } catch (e) {
-                    console.error(e);
-                }
-            });
+            $(".login").on("click", (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
+                var provider;
+                return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
+                    while(1)switch(_ctx.prev = _ctx.next){
+                        case 0:
+                            _ctx.prev = 0;
+                            _ctx.next = 3;
+                            return sdk.web3Modal().connect();
+                        case 3:
+                            provider = _ctx.sent;
+                            ex.provider = provider;
+                            ex.ethers = new (0, $jczNP$ethers.ethers).providers.Web3Provider(ex.provider);
+                            _ctx.next = 8;
+                            return ex.ethers.getSigner().getAddress();
+                        case 8:
+                            _ctx.t0 = _ctx.sent;
+                            ex.state = {
+                                account: _ctx.t0
+                            };
+                            ex.goToNextStep();
+                            _ctx.next = 16;
+                            break;
+                        case 13:
+                            _ctx.prev = 13;
+                            _ctx.t1 = _ctx["catch"](0);
+                            console.error(_ctx.t1);
+                        case 16:
+                        case "end":
+                            return _ctx.stop();
+                    }
+                }, _callee, null, [
+                    [
+                        0,
+                        13
+                    ]
+                ]);
+            })));
         });
-        ex.addHandlers(1, ()=>{
+        ex.addHandlers(1, function() {
+            var ref;
             // handler for connect wallet
             console.log(".exchange-wallet-connected", ex); // data
-            $(".wallet-connect---button .text-block-2").html(ex.state?.account); // address button
+            $(".wallet-connect---button .text-block-2").html((ref = ex.state) === null || ref === void 0 ? void 0 : ref.account); // address button
             // bind
             $("#email-form").submit(function(event) {
                 event.preventDefault();
                 return false;
             }); // on topup game wallet
-            $(".exchange---form input[value='Top Up']").on("click", async ()=>{
-                console.log("ddemodmo");
-                const send_token_amount = $("#email-form input[type='number']").val();
-                console.log("send_token_amount", send_token_amount); // const send_token_amount = "0.05";
-                const to_address = "0x1f2Ad5182b2F2398643b1Aa9187185d223905A0d";
-                const contract_address = "0xb625bD4B866DA272f8D3d0827E101dFcDd198667"; // const currentGasPrice = ex.ethers.getGasPrice();
-                // const gas_price = ethers.utils.hexlify(parseInt(currentGasPrice));
-                // console.log(`gas_price: ${gas_price}`);
-                // general token send
-                let contract = new (0, $kmlXY$ethers.ethers).Contract(contract_address, (0, (/*@__PURE__*/$parcel$interopDefault($6a1ea1583bdff0e4$exports))), ex.ethers.getSigner()); // How many tokens?
-                let numberOfTokens = (0, $kmlXY$ethers.ethers).utils.parseUnits(send_token_amount, 18);
-                console.log(`numberOfTokens: ${numberOfTokens}`); // Send tokens
-                contract.transfer(to_address, numberOfTokens).then((transferResult)=>{
-                    console.dir(transferResult);
-                    alert("sent token");
-                });
-            }); // on disconnect
-            $(".wallet-connect .text---small").on("click", async ()=>{
-                // disconnect wallet
-                await sdk.web3Modal().clearCachedProvider();
-                ex.goToPreviousStep();
-            }); // discount button
+            $(".exchange---form input[value='Top Up']").on("click", (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
+                var send_token_amount, to_address, contract_address, contract, numberOfTokens;
+                return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
+                    while(1)switch(_ctx.prev = _ctx.next){
+                        case 0:
+                            console.log("ddemodmo");
+                            send_token_amount = $("#email-form input[type='number']").val();
+                            console.log("send_token_amount", send_token_amount); // const send_token_amount = "0.05";
+                            to_address = "0x1f2Ad5182b2F2398643b1Aa9187185d223905A0d";
+                            contract_address = "0xb625bD4B866DA272f8D3d0827E101dFcDd198667"; // const currentGasPrice = ex.ethers.getGasPrice();
+                            contract = new (0, $jczNP$ethers.ethers).Contract(contract_address, (0, (/*@__PURE__*/$parcel$interopDefault($2a47c65b10640bef$exports))), ex.ethers.getSigner()); // How many tokens?
+                            numberOfTokens = (0, $jczNP$ethers.ethers).utils.parseUnits(send_token_amount, 18);
+                            console.log("numberOfTokens: ".concat(numberOfTokens)); // Send tokens
+                            contract.transfer(to_address, numberOfTokens).then(function(transferResult) {
+                                console.dir(transferResult);
+                                alert("sent token");
+                            });
+                        case 9:
+                        case "end":
+                            return _ctx.stop();
+                    }
+                }, _callee);
+            }))); // on disconnect
+            $(".wallet-connect .text---small").on("click", (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
+                return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
+                    while(1)switch(_ctx.prev = _ctx.next){
+                        case 0:
+                            _ctx.next = 2;
+                            return sdk.web3Modal().clearCachedProvider();
+                        case 2:
+                            ex.goToPreviousStep();
+                        case 3:
+                        case "end":
+                            return _ctx.stop();
+                    }
+                }, _callee);
+            }))); // discount button
         });
         ex.init();
         console.log(ex); // // must init the package
@@ -215,13 +316,15 @@ var $f6d935393cca4637$export$2e2bcd8739ae039 = {
 };
 
 
-/** Populate Router instance with DOM routes */ const $89e00d958f6c7b59$var$routes = new (0, $e0feaa0b459d85a8$export$2e2bcd8739ae039)({
-    common: // All pages
-    $27b22993631c5303$export$2e2bcd8739ae039,
-    exchange: // Home page
-    $f6d935393cca4637$export$2e2bcd8739ae039
+/** Populate Router instance with DOM routes */ var $b805db72ceeb7d45$var$routes = new (0, $08c2c54937623424$export$2e2bcd8739ae039)({
+    // All pages
+    common: (0, $19b8f7b3a8443d39$export$2e2bcd8739ae039),
+    // Home page
+    exchange: (0, $89748dfdce2d7bc9$export$2e2bcd8739ae039)
 }); // Load Events
-(0, ($parcel$interopDefault($kmlXY$jquery)))(document).ready(()=>$89e00d958f6c7b59$var$routes.loadEvents());
+(0, ($parcel$interopDefault($jczNP$jquery)))(document).ready(function() {
+    return $b805db72ceeb7d45$var$routes.loadEvents();
+});
 
 
 //# sourceMappingURL=main.js.map
