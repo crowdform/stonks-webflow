@@ -1,7 +1,7 @@
 {
   "name": "stonks-webflow",
   "version": "1.0.0",
-  "main": "dist/app.js",
+  "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
     "start": "parcel src/app.js",
