@@ -7384,6 +7384,7 @@ exports.default = {
         const sdk = new window.FlexConnect("flex-xyz", {
             env: "development"
         });
+        sdk.init();
         window.sdk = sdk; // Exchange
         const screens1 = [
             ".exchange-connect-wallet",
@@ -7405,8 +7406,9 @@ exports.default = {
             $(".login").on("click", async ()=>{
                 try {
                     // const url = await sdk.auth.login();
-                    const provider = await sdk.web3Modal().connect();
+                    const provider = await sdk.web3().modal.connect();
                     ex.provider = provider;
+                    console.log("ex.provider ", ex.provider);
                     ex.ethers = new (0, _ethers.ethers).providers.Web3Provider(ex.provider);
                     ex.state = {
                         account: await ex.ethers.getSigner().getAddress()

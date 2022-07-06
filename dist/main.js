@@ -114,7 +114,8 @@ var $eaf7e6bc0a214987$var$SteppedForm = /*#__PURE__*/ function() {
         {
             key: "init",
             value: function init() {
-                $("".concat(this.screens.join(","))).hide(); // attached listens
+                $("".concat(this.screens.join(","))).hide();
+                $(".step-title").hide(); // attached listens
                 this.setStep(0);
             }
         },
@@ -168,12 +169,18 @@ var $2a47c65b10640bef$exports = {};
 $2a47c65b10640bef$exports = JSON.parse('[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]');
 
 
+function $89748dfdce2d7bc9$var$truncate(fullStr) {
+    var strLen = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 8, separator = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : "...", frontChars = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 3, backChars = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : 4;
+    if (fullStr.length <= strLen) return fullStr;
+    return fullStr.substr(0, frontChars) + separator + fullStr.substr(fullStr.length - backChars);
+}
 var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
     init: function() {
         console.log("Exchange page");
         var sdk = new window.FlexConnect("flex-xyz", {
             env: "development"
         });
+        sdk.init();
         window.sdk = sdk; // Exchange
         var screens1 = [
             ".exchange-connect-wallet",
@@ -206,33 +213,34 @@ var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
                         case 0:
                             _ctx.prev = 0;
                             _ctx.next = 3;
-                            return sdk.web3Modal().connect();
+                            return sdk.web3().modal.connect();
                         case 3:
                             provider = _ctx.sent;
                             ex.provider = provider;
+                            console.log("ex.provider ", ex.provider);
                             ex.ethers = new (0, $jczNP$ethers.ethers).providers.Web3Provider(ex.provider);
-                            _ctx.next = 8;
+                            _ctx.next = 9;
                             return ex.ethers.getSigner().getAddress();
-                        case 8:
+                        case 9:
                             _ctx.t0 = _ctx.sent;
                             ex.state = {
                                 account: _ctx.t0
                             };
                             ex.goToNextStep();
-                            _ctx.next = 16;
+                            _ctx.next = 17;
                             break;
-                        case 13:
-                            _ctx.prev = 13;
+                        case 14:
+                            _ctx.prev = 14;
                             _ctx.t1 = _ctx["catch"](0);
                             console.error(_ctx.t1);
-                        case 16:
+                        case 17:
                         case "end":
                             return _ctx.stop();
                     }
                 }, _callee, null, [
                     [
                         0,
-                        13
+                        14
                     ]
                 ]);
             })));
@@ -241,7 +249,7 @@ var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
             var ref;
             // handler for connect wallet
             console.log(".exchange-wallet-connected", ex); // data
-            $(".wallet-connect---button .text-block-2").html((ref = ex.state) === null || ref === void 0 ? void 0 : ref.account); // address button
+            $(".wallet-connect---button .text-block-2").html($89748dfdce2d7bc9$var$truncate((ref = ex.state) === null || ref === void 0 ? void 0 : ref.account)); // address button
             // bind
             $("#email-form").submit(function(event) {
                 event.preventDefault();
@@ -253,36 +261,37 @@ var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
                     while(1)switch(_ctx.prev = _ctx.next){
                         case 0:
                             send_token_amount = $("#email-form input[type='number']").val();
-                            console.log("send_token_amount", send_token_amount); // const send_token_amount = "0.05";
+                            console.log("send_token_amount", send_token_amount);
+                            ex.state.send_token_amount = send_token_amount; // const send_token_amount = "0.05";
                             to_address = "0x1f2Ad5182b2F2398643b1Aa9187185d223905A0d";
                             contract_address = "0xb625bD4B866DA272f8D3d0827E101dFcDd198667"; // const currentGasPrice = ex.ethers.getGasPrice();
                             contract = new (0, $jczNP$ethers.ethers).Contract(contract_address, (0, (/*@__PURE__*/$parcel$interopDefault($2a47c65b10640bef$exports))), ex.ethers.getSigner()); // How many tokens?
                             numberOfTokens = (0, $jczNP$ethers.ethers).utils.parseUnits(send_token_amount, 18);
                             console.log("numberOfTokens: ".concat(numberOfTokens));
-                            _ctx.prev = 7;
+                            _ctx.prev = 8;
                             // open waiting for wallet
                             ex.goToNextStep(); // Send tokens
-                            _ctx.next = 11;
+                            _ctx.next = 12;
                             return contract.transfer(to_address, numberOfTokens);
-                        case 11:
+                        case 12:
                             transferResult = _ctx.sent;
                             ex.state.transaction = transferResult; // mining transaction waiting for wallet
                             ex.goToNextStep();
-                            _ctx.next = 20;
+                            _ctx.next = 21;
                             break;
-                        case 16:
-                            _ctx.prev = 16;
-                            _ctx.t0 = _ctx["catch"](7);
+                        case 17:
+                            _ctx.prev = 17;
+                            _ctx.t0 = _ctx["catch"](8);
                             console.error(_ctx.t0);
                             ex.goToPreviousStep();
-                        case 20:
+                        case 21:
                         case "end":
                             return _ctx.stop();
                     }
                 }, _callee, null, [
                     [
-                        7,
-                        16
+                        8,
+                        17
                     ]
                 ]);
             }))); // on disconnect
@@ -301,11 +310,58 @@ var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
                 }, _callee);
             }))); // discount button
         });
-        ex.addHandlers(3, function() {
-            var ref, ref1, ref2, ref3;
-            //  data hash
-            $(".exchange-mining-transaction .link---small").html((ref = ex.state) === null || ref === void 0 ? void 0 : (ref1 = ref.transaction) === null || ref1 === void 0 ? void 0 : ref1.hash).attr("href", "https://rinkeby.etherscan.io/tx/".concat((ref2 = ex.state) === null || ref2 === void 0 ? void 0 : (ref3 = ref2.transaction) === null || ref3 === void 0 ? void 0 : ref3.hash)); // address button
-        });
+        ex.addHandlers(3, (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
+            var ref, ref1, ref2, ref3, ref4, ref5, receipt;
+            return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
+                while(1)switch(_ctx.prev = _ctx.next){
+                    case 0:
+                        ;
+                        //  data hash
+                        $(".exchange-mining-transaction .link---small").html($89748dfdce2d7bc9$var$truncate((ref = ex.state) === null || ref === void 0 ? void 0 : (ref1 = ref.transaction) === null || ref1 === void 0 ? void 0 : ref1.hash)).attr("href", "https://rinkeby.etherscan.io/tx/".concat((ref2 = ex.state) === null || ref2 === void 0 ? void 0 : (ref3 = ref2.transaction) === null || ref3 === void 0 ? void 0 : ref3.hash)).attr("target", "_blank"); // address button
+                        _ctx.prev = 2;
+                        ;
+                        _ctx.next = 6;
+                        return (ref4 = ex.state) === null || ref4 === void 0 ? void 0 : (ref5 = ref4.transaction) === null || ref5 === void 0 ? void 0 : ref5.wait();
+                    case 6:
+                        receipt = _ctx.sent;
+                        console.log("receipt", receipt);
+                        ex.goToNextStep();
+                        _ctx.next = 15;
+                        break;
+                    case 11:
+                        _ctx.prev = 11;
+                        _ctx.t0 = _ctx["catch"](2);
+                        console.error(_ctx.t0);
+                        ex.goToPreviousStep();
+                    case 15:
+                    case "end":
+                        return _ctx.stop();
+                }
+            }, _callee, null, [
+                [
+                    2,
+                    11
+                ]
+            ]);
+        })));
+        ex.addHandlers(4, (0, ($parcel$interopDefault($jczNP$swchelperslib_async_to_generatorjs)))((0, ($parcel$interopDefault($jczNP$regeneratorruntime))).mark(function _callee() {
+            var ref, ref6, ref7, ref8;
+            return (0, ($parcel$interopDefault($jczNP$regeneratorruntime))).wrap(function _callee$(_ctx) {
+                while(1)switch(_ctx.prev = _ctx.next){
+                    case 0:
+                        ;
+                        //  data hash
+                        $(".exchange-transaction-successfull .link---small .link---small").html($89748dfdce2d7bc9$var$truncate((ref = ex.state) === null || ref === void 0 ? void 0 : (ref6 = ref.transaction) === null || ref6 === void 0 ? void 0 : ref6.hash)).attr("href", "https://rinkeby.etherscan.io/tx/".concat((ref7 = ex.state) === null || ref7 === void 0 ? void 0 : (ref8 = ref7.transaction) === null || ref8 === void 0 ? void 0 : ref8.hash)).attr("target", "_blank"); // address button
+                        $(".exchange-transaction-successfull .w-button").on("click", function(e) {
+                            e.preventDefault();
+                            location.reload();
+                        }); // $(".exchange-transaction-successfull").html(ex.state.send_token_amount);
+                    case 3:
+                    case "end":
+                        return _ctx.stop();
+                }
+            }, _callee);
+        })));
         ex.init();
         console.log(ex); // // must init the package
     // sdk.init();

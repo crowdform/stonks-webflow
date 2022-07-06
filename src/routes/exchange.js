@@ -27,6 +27,8 @@ export default {
       env: "development",
     });
 
+    sdk.init();
+
     window.sdk = sdk;
 
     // Exchange
@@ -54,8 +56,10 @@ export default {
       $(".login").on("click", async () => {
         try {
           // const url = await sdk.auth.login();
-          const provider = await sdk.web3Modal().connect();
+          const provider = await sdk.web3().modal.connect();
           ex.provider = provider;
+
+          console.log("ex.provider ", ex.provider);
           ex.ethers = new ethers.providers.Web3Provider(ex.provider);
           ex.state = {
             account: await ex.ethers.getSigner().getAddress(),
