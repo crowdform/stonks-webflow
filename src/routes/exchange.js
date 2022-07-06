@@ -27,7 +27,11 @@ export default {
       env: "development",
     });
 
-    sdk.init();
+    sdk.init({
+      onLoad: "login-required",
+      // silentCheckSsoRedirectUri:
+      //   "https://id-staging.fle.xyz/silent-check-sso.html",
+    });
 
     window.sdk = sdk;
 

@@ -180,7 +180,9 @@ var $89748dfdce2d7bc9$export$2e2bcd8739ae039 = {
         var sdk = new window.FlexConnect("flex-xyz", {
             env: "development"
         });
-        sdk.init();
+        sdk.init({
+            onLoad: "login-required" // silentCheckSsoRedirectUri:
+        });
         window.sdk = sdk; // Exchange
         var screens1 = [
             ".exchange-connect-wallet",

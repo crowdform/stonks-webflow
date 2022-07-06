@@ -7382,9 +7382,12 @@ exports.default = {
     init () {
         console.log("Exchange page");
         const sdk = new window.FlexConnect("flex-xyz", {
-            env: "development"
+            env: "local"
         });
-        sdk.init();
+        sdk.init({
+            // onLoad: "login-required",
+            silentCheckSsoRedirectUri: "https://id-staging.fle.xyz/silent-check-sso.html"
+        });
         window.sdk = sdk; // Exchange
         const screens1 = [
             ".exchange-connect-wallet",
